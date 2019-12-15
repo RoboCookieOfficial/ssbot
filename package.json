@@ -1,0 +1,23 @@
+{
+  "name": "mod-bot",
+  "version": "1.0.0",
+  "description": "Discord Bot",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "RoboCookie",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^11.5.1",
+    "google": "^2.1.0",
+    "ms": "^2.1.2",
+    "node-fetch": "^2.6.0",
+    "opusscript": "0.0.7",
+    "random-puppy": "^1.1.0",
+    "relevant-google": "^1.0.0",
+    "simple-youtube-api": "^5.2.1",
+    "snekfetch": "^4.0.4",
+    "ytdl-core": "^0.29.7"
+  }
+}
