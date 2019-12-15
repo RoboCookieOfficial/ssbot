@@ -293,8 +293,8 @@ client.on("message", async message => {
         message.channel.send(`The role, ${role.name}, has been added to ${rMember.displayName}.`)
     }
 
-    let embed = new RichEmbed()
-    .setColor(redlight)
+    let embed = new Discord.RichEmbed()
+    .setColor("#1420c9")
     .setAuthor(`${message.guild.name} Modlogs`, message.guild.iconURL)
     .addField("Moderation:", "Addrole")
     .addField("Mutee:", rMember.user.username)
@@ -325,8 +325,8 @@ client.on("message", async message => {
         message.channel.send(`The role, ${role.name}, has been removed from ${rMember.displayName}.`)
     }
 
-    let embed = new RichEmbed()
-    .setColor(redlight)
+    let embed = new Discord.RichEmbed()
+    .setColor("#1420c9")
     .setAuthor(`${message.guild.name} logs`, message.guild.iconURL)
     .addField("Moderation:", "Addrole")
     .addField("Mutee:", rMember.user.username)
@@ -388,7 +388,7 @@ client.on("message", async message => {
     message.channel.send(`**${banMember.user.tag}** has been banned`).then(m => m.delete(5000))
  
      let embed = new RichEmbed()
-     .setColor(redlight)
+     .setColor("#1420c9")
      .setAuthor(`${message.guild.name} logs`, message.guild.iconURL)
      .addField("Moderation:", "ban")
      .addField("Mutee:", banMember.user.username)
