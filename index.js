@@ -295,7 +295,7 @@ client.on("message", async message => {
 
     let embed = new Discord.RichEmbed()
     .setColor("#1420c9")
-    .setAuthor(`${message.guild.name} Modlogs`, message.guild.iconURL)
+    .setAuthor(`${message.guild.name} logs`, message.guild.iconURL)
     .addField("Moderation:", "Addrole")
     .addField("Mutee:", rMember.user.username)
     .addField("Moderator:", message.author.username)
