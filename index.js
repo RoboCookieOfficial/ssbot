@@ -237,6 +237,7 @@ client.on("message", async message => {
     .addField('botinfo', `Gives you some info about the bot`)
     .addField('serverinfo', `Gives you some info about the server you're in`)
     .addField('userinfo', `Gives you some info about the user you tagged or about yourself if you didn't tag someone`)
+    .addField('test-server', `Gives a link to WR's test server that's live at the moment`)
 
     message.channel.send(UserCommandEmbed);
 
@@ -248,8 +249,12 @@ client.on("message", async message => {
     .setTimestamp(message.createdAt)
     .addField('kick', `Kicks the mentioned user if you have the moderator or admin role`)
     .addField('ban', `Bans the mentioned user if you have the moderator or admin role`)
+    .addField('softban', `Softbans a user (for 1 day, then the user can join again)`)
+    .addField('unban', `Unbans a user from the server`)
     .addField('mute', `Mutes the mentioned user if you have the permission to manage roles`)
     .addField('unmute', `Unmutes the mentioned user if you have the permission to manage roles`)
+    .addField('addrole', `Adds the mentioned role to the mentioned user`)
+    .addField('removerole', `Removes the mentioned role from the mentioned user`)
 
     message.channel.send(ModCommandEmbed);
 
