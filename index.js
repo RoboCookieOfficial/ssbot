@@ -399,6 +399,10 @@ client.on("message", async message => {
          let sChannel = message.guild.channels.find(c => c.name === "logs")
          sChannel.send(embed)
   }
+
+  if(command === 'test') {
+     message.channel.send('Test')
+  }
 });
 
 client.login(process.env.TOKEN);
