@@ -38,7 +38,7 @@ client.on("guildMemberAdd", (member) => {
 
   if (newUsers[guild.id].size > 10) {
     const userlist = newUsers[guild.id].map(u => u.toString()).join(" ");
-    guild.channels.find(channel => channel.name === "general").send("Welcome our new users!\n" + userlist);
+    guild.channels.find(channel => channel.name === "friendly-chat").send("Welcome our new users!\n" + userlist);
     newUsers[guild.id].clear();
   }
 });
