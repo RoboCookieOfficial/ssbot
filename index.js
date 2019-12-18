@@ -32,20 +32,15 @@ client.on("guildDelete", guild => {
 });
 
 client.on("guildMemberAdd", (member) => {
-  const guild = member.guild;
-  if (!newUsers[guild.id]) newUsers[guild.id] = new Discord.Collection();
-  newUsers[guild.id].set(member.id, member.user);
-
-  if (newUsers[guild.id].size > 10) {
-    const userlist = newUsers[guild.id].map(u => u.toString()).join(" ");
-    guild.channels.find(channel => channel.name === "friendly-chat").send("Welcome our new users!\n" + userlist);
-    newUsers[guild.id].clear();
-  }
+	let sChannel = message.guild.channels.find(`name`, 'friendly-chat');
+	
+	sChannel.send(`Welcome ${member}`);
 });
 
 client.on("guildMemberRemove", (member) => {
-  const guild = member.guild;
-  if (newUsers[guild.id].has(member.id)) newUsers.delete(member.id);
+	let sChannel = message.guild.channels.find(`name`, 'friendly-chat');
+	
+	sChannel.send(`Bye ${member}`);
 });
 
 client.on("message", async message => {
