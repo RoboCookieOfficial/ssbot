@@ -415,7 +415,7 @@ client.on("message", async message => {
   }
 	
   if(command === 'delticket') {
-	if(!message.member.hasPermission("MANAGE_MESSAGES") return message.channel.send('You don\'t have permission to Manage Messages');
+	if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send('You don\'t have permission to Manage Messages');
 	if (!message.channel.name.startsWith(`ticket-`)) return message.channel.send(`You can't use the close command outside of a ticket channel.`);
 
         message.channel.send(`Are you sure? Once confirmed, you cannot reverse this action!\nTo confirm, type \`/confirm\`. This will time out in 10 seconds and be cancelled.`)
