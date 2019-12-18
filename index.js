@@ -485,7 +485,7 @@ client.on("message", async message => {
         if(!reason) return message.channel.send(`Please provide a reason for reporting **${target.user.tag}**`).then(m => m.delete(15000))
 
 
-        let sChannel = message.guild.channels.find(x => x.name === "tut-reports")
+        let sChannel = message.guild.channels.find(x => x.name === "reports")
 
 
         message.channel.send("Your report has been filed to the staff team. Thank you!").then(m => m.delete(15000))
