@@ -545,6 +545,20 @@ client.on("message", async message => {
             });
         }).catch(console.error);
   }
+	
+  if(command === 'avatar') {
+    let msg = await message.channel.send("doing some magic ...");
+    let target = message.mentions.users.first() || message.author;
+
+    await message.channel.send({files: [
+        {
+            attachment: target.displayAvatarURL,
+            name: "avatar.png"
+        }
+    ]});
+
+    msg.delete();
+  }
 });
 
 client.login(process.env.TOKEN);
