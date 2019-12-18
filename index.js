@@ -228,7 +228,7 @@ client.on("message", async message => {
     let UserCommandEmbed = new Discord.RichEmbed()
     .setAuthor(message.author.username)
     .setTitle('User commands')
-    .setFooter('Help (bot still in development)')
+    .setFooter('Help')
     .setColor("#1420c9")
     .setTimestamp(message.createdAt)
     .addField('help', `This command`)
@@ -238,13 +238,16 @@ client.on("message", async message => {
     .addField('serverinfo', `Gives you some info about the server you're in`)
     .addField('userinfo', `Gives you some info about the user you tagged or about yourself if you didn't tag someone`)
     .addField('test-server', `Gives a link to WR's test server that's live at the moment`)
+    .addField('report', `Reports the mentioned user for the given reason`)
+    .addField('ticket', `Opens a ticket that you and the Support Staff can see`)
+    .addField('avatar', `Send the avatar of the mentioned user`)
 
     message.channel.send(UserCommandEmbed);
 
     let ModCommandEmbed = new Discord.RichEmbed()
     .setAuthor(message.author.username)
     .setTitle('Moderator commands')
-    .setFooter('Help (bot still in development)')
+    .setFooter('Help')
     .setColor("#1420c9")
     .setTimestamp(message.createdAt)
     .addField('kick', `Kicks the mentioned user if you have the moderator or admin role`)
@@ -255,13 +258,14 @@ client.on("message", async message => {
     .addField('unmute', `Unmutes the mentioned user if you have the permission to manage roles`)
     .addField('addrole', `Adds the mentioned role to the mentioned user`)
     .addField('removerole', `Removes the mentioned role from the mentioned user`)
+    .addField('delticket', `Deletes ticket channel you're in`)
 
     message.channel.send(ModCommandEmbed);
 
     let OwnerCommandEmbed = new Discord.RichEmbed()
     .setAuthor(message.author.username)
     .setTitle('Bot owner commands')
-    .setFooter('Help (bot still in development)')
+    .setFooter('Help')
     .setColor("#1420c9")
     .setTimestamp(message.createdAt)
     .addField('restart', 'Restars the bot (not avaible yet)')
@@ -443,7 +447,7 @@ client.on("message", async message => {
   }
 	
   if(command === 'ticket') {
-	          const reason = message.content.split(" ").slice(1).join(" ");
+	const reason = message.content.split(" ").slice(1).join(" ");
         if (!message.guild.roles.exists("name", "Support Staff")) return message.channel.send(`This server doesn't have a \`Support Staff\` role made, so the ticket won't be opened.\nIf you are an administrator, make one with that name exactly and give it to users that should be able to see tickets.`);
         if (message.guild.channels.exists("name", "ticket-" + message.author.id)) return message.channel.send(`You already have a ticket open.`);
         message.guild.createChannel(`ticket-${message.author.id}`, "text").then(c => {
