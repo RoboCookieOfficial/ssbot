@@ -417,10 +417,10 @@ client.on("message", async message => {
     var date = new Date().getTime();
     var dateTime = new Date(date + (time * 1000));
  
-    var giveawayEmbed = new discord.RichEmbed()
-        .setTitle("🎉 **GIVEAWAY** 🎉")
-        .setFooter(`Ends at: ${dateTime}`)
-        .setDescription(item);
+    let giveawayEmbed = new Discord.RichEmbed()
+    .setTitle("🎉 **GIVEAWAY** 🎉")
+    .setFooter(`Ends at: ${dateTime}`)
+    .setDescription(item);
  
     var embedSend = await message.channel.send(giveawayEmbed);
     embedSend.react("🎉");
