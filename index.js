@@ -261,17 +261,6 @@ client.on("message", async message => {
     .addField('delticket', `Deletes ticket channel you're in`)
 
     message.channel.send(ModCommandEmbed);
-
-    let OwnerCommandEmbed = new Discord.RichEmbed()
-    .setAuthor(message.author.username)
-    .setTitle('Bot owner commands')
-    .setFooter('Help')
-    .setColor("#1420c9")
-    .setTimestamp(message.createdAt)
-    .addField('restart', 'Restars the bot (not avaible yet)')
-    .addField('remove', 'Removes the bot from the server where the command is used in (not avaible yet)')
-
-    message.channel.send(OwnerCommandEmbed);
   }
 
   if(command === 'test-server') {
