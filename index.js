@@ -31,18 +31,6 @@ client.on("guildDelete", guild => {
   client.user.setActivity(`/help`);
 });
 
-client.on("guildMemberAdd", (member) => {
-	let sChannel = message.guild.channels.find(`name`, 'friendly-chat');
-	
-	sChannel.send(`Welcome ${member}`);
-});
-
-client.on("guildMemberRemove", (member) => {
-	let sChannel = message.guild.channels.find(`name`, 'friendly-chat');
-	
-	sChannel.send(`Bye ${member}`);
-});
-
 client.on("message", async message => {
   if(message.author.bot) return;
   
