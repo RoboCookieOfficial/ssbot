@@ -18,6 +18,7 @@
     "relevant-google": "^1.0.0",
     "simple-youtube-api": "^5.2.1",
     "snekfetch": "^4.0.4",
-    "ytdl-core": "^0.29.7"
+    "ytdl-core": "^0.29.7",
+    "weather-js": "^2.0.0"
   }
 }
