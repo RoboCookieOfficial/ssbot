@@ -505,8 +505,9 @@ client.on("message", async message => {
                 .addField('Winds',current.winddisplay, true)
                 .addField('Humidity', `${current.humidity}%`, true)
 
-                message.channel.send({embed});
+                message.channel.send(embed);
         });
+     }
   }
 });
 
