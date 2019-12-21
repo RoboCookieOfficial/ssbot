@@ -496,7 +496,7 @@ client.on("message", async message => {
 	];
 
 	const randomIndex = Math.floor(Math.random() * responses.length);
-	message.channel.reply(message, responses[randomIndex]);
+	client.reply(message, responses[randomIndex]);
   }
 });
 
