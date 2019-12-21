@@ -480,7 +480,7 @@ client.on("message", async message => {
     msg.delete();
   }
 
-  if(command === '8ba') {
+  if(command === '8ball') {
     	const responses = [
 		"It is certain",
 		"It is decidedly so",
