@@ -481,7 +481,7 @@ client.on("message", async message => {
   }
 
   if(command === '8ball') {
-    	const responses = [
+    	var responses = [
 		"It is certain",
 		"It is decidedly so",
 		"Without a doubt",
