@@ -4,6 +4,8 @@ const Discord = require("discord.js");
 const client = new Discord.Client();
 const config = require("./config.json");
 
+const Welcome = require("discord-welcome");
+
 var version = (
   "1.0.3"
 );
@@ -15,6 +17,13 @@ var creator = (
 var owner = (
   "RoboCookie#1925"
 );
+
+Welcome(client, {
+    privatemsg : "Test welcome",
+    publicmsg : "Welcome to "TEST" @MEMBER",
+    publicchannel : "588731883710316559"
+    })
+});
 
 client.on("ready", () => {
   console.log(`Bot has started, with ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds.`); 
