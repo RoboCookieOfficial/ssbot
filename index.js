@@ -22,7 +22,6 @@ Welcome(client, {
     privatemsg : "Test welcome",
     publicmsg : "Welcome to \"TEST\" @MEMBER",
     publicchannel : "588731883710316559"
-    })
 });
 
 client.on("ready", () => {
