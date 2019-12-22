@@ -20,7 +20,7 @@ var owner = (
 
 Welcome(client, {
     privatemsg : "Test welcome",
-    publicmsg : "Welcome to "TEST" @MEMBER",
+    publicmsg : "Welcome to \"TEST\" @MEMBER",
     publicchannel : "588731883710316559"
     })
 });
