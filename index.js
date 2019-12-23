@@ -487,6 +487,43 @@ client.on("message", async message => {
 
     msg.delete();
   }
+	
+  if(command === 'weather') {
+    let apiKey = "6e263e4aeb6f10d95c8509e4654c0da8";
+    let arg = message.content.split(" ").join(" ");
+
+    if(!arg) return message.channel.send(`${message.author.tag}, I need an **valid** city to check`);
+
+    fetch('http://api.openweathermap.org/data/2.5/weather?q' + arg + 'APPID=' + apiKey + '&units=metric')
+      .then(res => {
+        return res.json();
+      }).then(json => {
+        if(json.main === undefined) return message.channel.send(`**${arg}** is not a valid city`)
+        let rise = json.sys.sunrise;
+        let date = new Date(rise * 1000);
+        let timestr = date.toLocaleTimeString();
+        let set = json.sys.sunset;
+        let setDate = new Date(set * 1000);
+        let timesstr = setDate.toLocaleTimeString();
+
+        const weatherEmbed = new Discord.RichEmbed()
+        .setColor("#1420c9")
+        .setTitle(`Weather for ${json.name}`)
+        .setAuthor(message.author)
+        .setDescription('INFO')
+        .addField('**Temperature**:', `${json.main.temp} °C`, true)
+        .addField('**Windspeed**:', `${json.wind.speed}m`, true)
+        .addField('**Humidity**', `${json.main.humidity}`, true)
+        .addField('**Sunrise**', `${timestr}`, true)
+        .addField('**Sunset**', `${timesstr}`, true)
+        .setFooter('**As accurate as possible', message.author.displayAvatarURL)
+
+        message.channel.send(weatherEmbed);
+        .catch(console.error);
+      }).catch(err => {
+        if(err) return message.channel.send('Something went wrong with the API');
+      });
+  }
 });
 
 client.login(process.env.TOKEN);
