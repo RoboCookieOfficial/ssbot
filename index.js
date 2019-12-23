@@ -506,7 +506,7 @@ client.on("message", async message => {
             .setColor(`#c705bd`)
             .setTitle(`${res.title}`)
             .setURL(`${res.formattedUl}`)
-            .addField(`Google Result` (res.snippet))
+            .addField(`Google Result`, (res.snippet))
             .addField(`Link`(`${res.formattedUrl}`))
             message.channel.send(embed);
         }))
