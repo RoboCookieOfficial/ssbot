@@ -511,7 +511,7 @@ client.on("message", async message => {
             message.channel.send(embed);
         }))
         if(!list.length){
-            message.channel.send(`No results found for ${args.join(`)}`);
+            message.channel.send(`No results found for ${args.join(``)}`);
         }
   }
 });
