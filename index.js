@@ -519,7 +519,7 @@ client.on("message", async message => {
         .setFooter('**As accurate as possible', message.author.displayAvatarURL)
 
         message.channel.send(weatherEmbed);
-        .catch(console.error);
+        catch(console.error);
       }).catch(err => {
         if(err) return message.channel.send('Something went wrong with the API');
       });
