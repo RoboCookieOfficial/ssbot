@@ -500,7 +500,7 @@ client.on("message", async message => {
         if(!args.length){
             return message.channel.send("Supply a search term please!")
         }
-        const query = querystring.stringify({term: args.join(")})
+        const query = querystring.stringify({term: args.join("")})
         const { list } = await fetch(google.search(query).then(res => {
             const embed = new Discord.RichEmbed()
             .setColor(`#c705bd`)
