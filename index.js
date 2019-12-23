@@ -4,9 +4,6 @@ const Discord = require("discord.js");
 const client = new Discord.Client();
 const config = require("./config.json");
 
-const Google = require('relevant-google');
-const googleapi = "AIzaSyBfYSdxEXqnsbSI0pYrRwdtHc5sIO3n7sg";
-
 const Welcome = require("discord-welcome");
 
 var version = (
@@ -489,30 +486,6 @@ client.on("message", async message => {
     ]});
 
     msg.delete();
-  }
-	
-  if(command == 'image') {
-    const fetch = require('node-fetch');
-    const querystring= require('querystring');
-    
-    const google = new Google(googleapi);
-    
-        if(!args.length){
-            return message.channel.send("Supply a search term please!")
-        }
-        const query = querystring.stringify({term: args.join("")})
-        const { list } = await fetch(google.search(query).then(res => {
-            const embed = new Discord.RichEmbed()
-            .setColor(`#c705bd`)
-            .setTitle(`${res.title}`)
-            .setURL(`${res.formattedUl}`)
-            .addField(`Google Result`, (res.snippet))
-            .addField(`Link`(`${res.formattedUrl}`))
-            message.channel.send(embed);
-        }))
-        if(!list.length){
-            message.channel.send(`No results found for ${args.join(``)}`);
-        }
   }
 });
 
