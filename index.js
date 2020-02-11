@@ -54,44 +54,44 @@ client.on("message", async message => {
   if(command === "say") {
     const sayMessage = args.join(" ");
     message.delete().catch(O_o=>{}); 
-    message.channel.send(`Message: ${sayMessage} (requested by: ${message.author})`);
+    message.channel.send(`**Message: ${sayMessage} (requested by: ${message.author})**`);
   };
   
   if(command === "kick") {
     if(!message.member.roles.some(r=>["Admin", "Moderator", "Administrator", "Mod"].includes(r.name)) )
-      return message.reply("Sorry, you don't have permissions to use this!");
+      return message.reply("**Sorry, you don't have permissions to use this**");
     
     let member = message.mentions.members.first() || message.guild.members.get(args[0]);
     if(!member)
-      return message.reply("Please mention a valid member of this server");
+      return message.reply("**Please mention a valid member of this server**");
     if(!member.kickable) 
-      return message.reply("I cannot kick this user! Do they have a higher role? Do I have kick permissions?");
+      return message.reply("**I cannot kick this user! Do they have a higher role? Do I have kick permissions?**");
     
     let reason = args.slice(1).join(' ');
-    if(!reason) reason = "No reason provided";
+    if(!reason) reason = "**No reason given**";
     
     await member.kick(reason)
-      .catch(error => message.reply(`Sorry ${message.author} I couldn't kick because of : ${error}`));
-    message.reply(`${member.user.tag} has been kicked by ${message.author.tag} because: ${reason}`);
+      .catch(error => message.reply(`**Sorry ${message.author} I couldn't kick because of : ${error}**`));
+    message.reply(`**${member.user.tag} has been kicked by ${message.author.tag} because: ${reason}**`);
 
   }
   
   if(command === "ban") {
     if(!message.member.roles.some(r=>["Admin", "Moderator", "Administrator", "Mod"].includes(r.name)) )
-      return message.reply("Sorry, you don't have permissions to use this!");
+      return message.reply("**Sorry, you don't have permissions to use this**");
     
     let member = message.mentions.members.first();
     if(!member)
-      return message.reply("Please mention a valid member of this server");
+      return message.reply("**Please mention a valid member of this server**");
     if(!member.bannable) 
-      return message.reply("I cannot ban this user! Do they have a higher role? Do I have ban permissions?");
+      return message.reply("**I cannot ban this user! Do they have a higher role? Do I have ban permissions?**");
 
     let reason = args.slice(1).join(' ');
-    if(!reason) reason = "No reason provided";
+    if(!reason) reason = "**No reason given**";
     
     await member.ban(reason)
-      .catch(error => message.reply(`Sorry ${message.author} I couldn't ban because of : ${error}`));
-    message.reply(`${member.user.tag} has been banned by ${message.author.tag} because: ${reason}`);
+      .catch(error => message.reply(`**Sorry ${message.author} I couldn't ban because of : ${error}**`));
+    message.reply(`**${member.user.tag} has been banned by ${message.author.tag} because: ${reason}**`);
   }
   
   if(command === "clear") {
@@ -103,7 +103,7 @@ client.on("message", async message => {
     
     const fetched = await message.channel.fetchMessages({limit: deleteCount});
     message.channel.bulkDelete(fetched)
-      .catch(error => message.reply(`Couldn't delete messages because of: ${error}`));
+      .catch(error => message.reply(`**Couldn't delete messages because of: ${error}**`));
   }
 
   if(command === 'mute') {
@@ -112,7 +112,7 @@ client.on("message", async message => {
     if(!message.guild.me.hasPermission(["MANAGE_ROLES", "ADMINISTRATOR"])) return message.channel.send("I don't have permission to add roles!")
 
     let mutee = message.mentions.members.first() || message.guild.members.get(args[0]);
-    if(!mutee) return message.channel.send("Please supply a user to be muted!");
+    if(!mutee) return message.channel.send("**Please supply a user to be muted**");
 
     let reason = args.slice(1).join(" ");
     if(!reason) reason = "**No reason given**"
@@ -141,13 +141,13 @@ client.on("message", async message => {
 
     mutee.addRole(muterole.id).then(() => {
         message.delete()
-        mutee.send(`Hello, you have been in ${message.guild.name} for: ${reason}`).catch(err => console.log(err))
-        message.channel.send(`${mutee.user.username} was successfully muted.`)
+        mutee.send(`**Hello, you have been in ${message.guild.name} for: ${reason}**`).catch(err => console.log(err))
+        message.channel.send(`**${mutee.user.username} was successfully muted**`)
     })
 
     let embed = new Discord.RichEmbed()
     .setColor('#1420c9')
-    .setAuthor(`${message.guild.name} Modlogs`, message.guild.iconURL)
+    .setAuthor(`${message.guild.name} logs`, message.guild.iconURL)
     .addField("Moderation:", "mute")
     .addField("Mutee:", mutee.user.username)
     .addField("Moderator:", message.author.username)
@@ -164,7 +164,7 @@ client.on("message", async message => {
     if(!message.guild.me.hasPermission(["MANAGE_ROLES", "ADMINISTRATOR"])) return message.channel.send("I don't have permission to add roles!")
 
     let mutee = message.mentions.members.first() || message.guild.members.get(args[0]);
-    if(!mutee) return message.channel.send("Please supply a user to be muted!");
+    if(!mutee) return message.channel.send("**Please supply a user to be muted**");
 
     let reason = args.slice(1).join(" ");
     if(!reason) reason = "**No reason given**"
@@ -174,13 +174,13 @@ client.on("message", async message => {
 
     mutee.removeRole(muterole.id).then(() => {
         message.delete()
-        mutee.send(`Hello, you have been unmuted in ${message.guild.name} for: ${reason}`).catch(err => console.log(err))
-        message.channel.send(`${mutee.user.username} was unmuted!`)
+        mutee.send(`**Hello, you have been unmuted in ${message.guild.name} for: ${reason}**`).catch(err => console.log(err))
+        message.channel.send(`**${mutee.user.username} was unmuted**`)
     })
 
     let embed = new Discord.RichEmbed()
     .setColor("#1420c9")
-    .setAuthor(`${message.guild.name} Modlogs`, message.guild.iconURL)
+    .setAuthor(`${message.guild.name} logs`, message.guild.iconURL)
     .addField("Moderation:", "unmute")
     .addField("Mutee:", mutee.user.username)
     .addField("Moderator:", message.author.username)
