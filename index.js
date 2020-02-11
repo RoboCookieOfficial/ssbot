@@ -20,8 +20,8 @@ var owner = (
 
 Welcome(client, {
     privatemsg : "Welcome to the Sinister Sages Discord Community",
-    publicmsg : "Welcome to our community, Enjoy your staying and make sure to read the rules and follow them",
-    publicchannel : "588731883710316559"
+    publicmsg : "Welcome to our community, Enjoy your staying and make sure to read the rules and follow them\n| @MEMBER |",
+    publicchannel : "welcome"
 });
 
 client.on("ready", () => {
