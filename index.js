@@ -15,7 +15,7 @@ var creator = (
 );
 
 var owner = (
-  "RoboCookie#1925"
+  "**Unknown**"
 );
 
 Welcome(client, {
