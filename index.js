@@ -47,8 +47,8 @@ client.on("message", async message => {
   const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
   const command = args.shift().toLowerCase();
 
-  if(command === "ping") {
-    message.channel.send('Pong!');
+  if(command === "yeet") {
+    message.channel.send('**Yeetus Deletus**');
   }
   
   if(command === "say") {
