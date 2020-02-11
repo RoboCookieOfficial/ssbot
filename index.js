@@ -115,7 +115,7 @@ client.on("message", async message => {
     if(!mutee) return message.channel.send("Please supply a user to be muted!");
 
     let reason = args.slice(1).join(" ");
-    if(!reason) reason = "No reason given"
+    if(!reason) reason = "**No reason given**"
 
     let muterole = message.guild.roles.find(r => r.name === "Muted")
     if(!muterole) {
@@ -167,7 +167,7 @@ client.on("message", async message => {
     if(!mutee) return message.channel.send("Please supply a user to be muted!");
 
     let reason = args.slice(1).join(" ");
-    if(!reason) reason = "No reason given"
+    if(!reason) reason = "**No reason given**"
 
     let muterole = message.guild.roles.find(r => r.name === "Muted")
     if(!muterole) return message.channel.send("There is no mute role to remove!")
@@ -348,7 +348,7 @@ client.on("message", async message => {
           if(!bannedMember) return message.channel.send("Please provide a user id to unban someone!")
   
       let reason = args.slice(1).join(" ")
-          if(!reason) reason = "No reason given!"
+          if(!reason) reason = "**No reason given**"
   
       if(!message.guild.me.hasPermission(["BAN_MEMBERS", "ADMINISTRATOR"])) return message.channel.send("I dont have permission to perform this command!")|
       message.delete()
@@ -379,7 +379,7 @@ client.on("message", async message => {
     if(!banMember) return message.channel.send("Please provide a user to ban!")
  
     let reason = args.slice(1).join(" ");
-    if(!reason) reason = "No reason given!"
+    if(!reason) reason = "**No reason given**"
  
     if(!message.guild.me.hasPermission(["BAN_MEMBERS", "ADMINISTRATOR"])) return message.channel.send("I dont have permission to perform this command")
  
