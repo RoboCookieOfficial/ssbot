@@ -272,7 +272,7 @@ client.on("message", async message => {
   }
 
   if(command === 'test-server') {
-    message.channel.send('https://warrobots.fandom.com/wiki/Test_Server');
+    message.channel.send('**https://warrobots.fandom.com/wiki/Test_Server**');
   }
 
   if(command === 'addrole') {
@@ -381,10 +381,10 @@ client.on("message", async message => {
     let reason = args.slice(1).join(" ");
     if(!reason) reason = "**No reason given**"
  
-    if(!message.guild.me.hasPermission(["BAN_MEMBERS", "ADMINISTRATOR"])) return message.channel.send("I dont have permission to perform this command")
+    if(!message.guild.me.hasPermission(["BAN_MEMBERS", "ADMINISTRATOR"])) return message.channel.send("**I dont have permission to perform this command**")
  
     banMember.send(`Hello, you have been banned from ${message.guild.name} for: ${reason}`).then(() =>
-    message.guild.ban(banMember, { days: 1, reason: reason})).then(() => message.guild.unban(banMember.id, { reason: "Softban"})).catch(err => console.log(err))
+    message.guild.ban(banMember, { days: 1, reason: reason})).then(() => message.guild.unban(banMember.id, { reason: "**Softban**"})).catch(err => console.log(err))
  
     message.channel.send(`**${banMember.user.tag}** has been banned`).then(m => m.delete(5000))
  
