@@ -405,7 +405,7 @@ client.on("message", async message => {
 	message.delete()
 
         let target = message.mentions.members.first() || message.guild.members.get(args[0])
-        if(!target) return message.channel.send("Please provide a valid user").then(m => m.delete(15000))
+        if(!target) return message.channel.send("**Please provide a valid user**").then(m => m.delete(15000))
 
 
         let reason = args.slice(1).join(" ")
@@ -415,7 +415,7 @@ client.on("message", async message => {
         let sChannel = message.guild.channels.find(x => x.name === "reports")
 
 
-        message.channel.send("Your report has been filed to the staff team. Thank you!").then(m => m.delete(15000))
+        message.channel.send("**Your report has been filed to the staff team. Thank you**").then(m => m.delete(15000))
         sChannel.send(`**${message.author.tag}** has reported **${target.user.tag}** for **${reason}**.`).then(async msg => {
             await msg.react("✅")
             await msg.react("❌")
@@ -466,7 +466,7 @@ client.on("message", async message => {
             message.channel.send(`:white_check_mark: Your ticket has been created, #${c.name}.`);
             const embed = new Discord.RichEmbed()
                 .setColor(0xCF40FA)
-                .addField(`Hey ${message.author.username}!`, `Please try explain why you opened this ticket with as much detail as possible. Our **Support Staff** will be here soon to help.`)
+                .addField(`Hey ${message.author.username}`, `Please try explain why you opened this ticket with as much detail as possible. Our **Support Staff** will be here soon to help.`)
                 .setTimestamp();
             c.send({
                 embed: embed
@@ -475,7 +475,7 @@ client.on("message", async message => {
   }
 	
   if(command === 'avatar') {
-    let msg = await message.channel.send("doing some magic ...");
+    let msg = await message.channel.send("**doing some magic ...**");
     let target = message.mentions.users.first() || message.author;
 
     await message.channel.send({files: [
