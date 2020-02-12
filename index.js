@@ -152,7 +152,7 @@ client.on("message", async message => {
         try{
             muterole = await message.guild.createRole({
                 name: "Muted",
-                color: EmbedColor,
+                color: "#808080",
                 permissions: []
             })
             message.guild.channels.forEach(async (channel, id) => {
