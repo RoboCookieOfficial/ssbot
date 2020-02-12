@@ -171,7 +171,7 @@ client.on("message", async message => {
 
     mutee.addRole(muterole.id).then(() => {
         message.delete()
-        mutee.send(`**Hello, you have been in ${message.guild.name} for: ${reason}**`).catch(err => console.log(err))
+        mutee.send(`**Hello, you have been muted in ${message.guild.name} for: ${reason}**`).catch(err => console.log(err))
         message.channel.send(`**${mutee.user.username} was successfully muted**`)
     })
 
@@ -204,7 +204,7 @@ client.on("message", async message => {
 
     mutee.removeRole(muterole.id).then(() => {
         message.delete()
-        mutee.send(`**Hello, you have been unmuted in ${message.guild.name} for: ${reason}**`).catch(err => console.log(err))
+        mutee.send(`**Hello, you have been unmuted in ${message.guild.name}`).catch(err => console.log(err))
         message.channel.send(`**${mutee.user.username} was unmuted**`)
     })
 
@@ -274,8 +274,8 @@ client.on("message", async message => {
     .addField('ping', `Bot answers \"Pong!\"`)
     .addField('botinfo', `Gives you some info about the bot`)
     .addField('serverinfo', `Gives you some info about the server you\'re in`)
-    .addField('userinfo', `Gives you some info about the user you tagged or about yourself if you didn't tag someone`)
-    .addField('test-server', `Gives a link to WR's test server that's live at the moment`)
+    .addField('userinfo', `Gives you some info about the user you tagged or about yourself if you didn\'t tag someone`)
+    .addField('test-server', `Gives a link to WR's test server that\'s live at the moment`)
     .addField('report', `Reports the mentioned user for the given reason`)
     .addField('ticket', `Opens a ticket that you and the Support Staff can see`)
     .addField('avatar', `Send the avatar of the mentioned user`)
@@ -311,9 +311,9 @@ client.on("message", async message => {
     let rMember = message.mentions.members.first() || message.guild.members.find(m => m.user.tag === args[0]) || message.guild.members.get(args[0])
     if(!rMember) return message.channel.send("Please provide a user to add a role too.")
     let role = message.guild.roles.find(r => r.name == args[1]) || message.guild.roles.find(r => r.id == args[1]) || message.mentions.roles.first()
-    if(!role) return message.channel.send("Please provide a role to add to said user.") 
+    if(!role) return message.channel.send("**Please provide a role to add to said user**") 
     let reason = args.slice(2).join(" ")
-    if(!reason) return message.channel.send("Please provide a reason")
+    if(!reason) return message.channel.send("**Please provide a reason**")
 
     if(!message.guild.me.hasPermission(["MANAGE_ROLES", "ADMINISTRATOR"])) return message.channel.send("I don't have permission to perform this command.")
 
@@ -375,12 +375,12 @@ client.on("message", async message => {
 		
     if(isNaN(args[0])) return message.channel.send("You need to provide an ID.")
       let bannedMember = await bot.fetchUser(args[0])
-          if(!bannedMember) return message.channel.send("Please provide a user id to unban someone!")
+          if(!bannedMember) return message.channel.send("**Please provide a user id to unban someone**")
   
       let reason = args.slice(1).join(" ")
           if(!reason) reason = "**No reason given**"
   
-      if(!message.guild.me.hasPermission(["BAN_MEMBERS", "ADMINISTRATOR"])) return message.channel.send("I dont have permission to perform this command!")|
+      if(!message.guild.me.hasPermission(["BAN_MEMBERS", "ADMINISTRATOR"])) return message.channel.send("**I dont have permission to perform this command**")|
       message.delete()
       try {
           message.guild.unban(bannedMember, reason)
@@ -406,7 +406,7 @@ client.on("message", async message => {
     if(!message.member.hasPermission(["BAN_MEMBERS", "ADMINISTRATOR"])) return message.channel.send("You do not have permission to perform this command!")
 
     let banMember = message.mentions.members.first() || message.guild.members.get(args[0]) 
-    if(!banMember) return message.channel.send("Please provide a user to ban!")
+    if(!banMember) return message.channel.send("**Please provide a user to ban**")
  
     let reason = args.slice(1).join(" ");
     if(!reason) reason = "**No reason given**"
