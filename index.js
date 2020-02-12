@@ -7,7 +7,7 @@ const config = require("./config.json");
 const Welcome = require("discord-welcome");
 
 var version = (
-  "1.0.3"
+  "1.1.5"
 );
 
 var creator = (
@@ -19,8 +19,8 @@ var owner = (
 );
 
 Welcome(client, {
-    privatemsg : "Welcome to the Sinister Sages Discord Community",
-    publicmsg : "Welcome to our community, Enjoy your staying and make sure to read the rules and follow them\n| @MEMBER |",
+    privatemsg : "**Welcome to the Sinister Sages Discord Community**",
+    publicmsg : "**Welcome to our community, Enjoy your staying and make sure to read the rules and follow them\n| @MEMBER |**",
     publicchannel : "welcome"
 });
 
