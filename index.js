@@ -265,9 +265,9 @@ client.on("message", async message => {
     .setTimestamp(message.createdAt)
     .addField('help', `Shows you a list of all the avaible command to normal users and moderators`)
     .addField('say', `Let the bot say something you want it to say, the bot also shows the name of the author`)
-    .addField('ping', `Bot answers "Pong!"`)
+    .addField('ping', `Bot answers \"Pong!\"`)
     .addField('botinfo', `Gives you some info about the bot`)
-    .addField('serverinfo', `Gives you some info about the server you're in`)
+    .addField('serverinfo', `Gives you some info about the server you\'re in`)
     .addField('userinfo', `Gives you some info about the user you tagged or about yourself if you didn't tag someone`)
     .addField('test-server', `Gives a link to WR's test server that's live at the moment`)
     .addField('report', `Reports the mentioned user for the given reason`)
@@ -510,6 +510,10 @@ client.on("message", async message => {
     ]});
 
     msg.delete();
+  }
+	
+  if(command === '*') {
+    message.channel.send("Bot is online!");
   }
 });
 
