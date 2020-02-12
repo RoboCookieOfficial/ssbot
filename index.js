@@ -6,6 +6,9 @@ const config = require("./config.json");
 
 const Welcome = require("discord-welcome");
 
+var EmbedColor = (
+  "#00FFFF"
+)
 var version = (
   "1.1.5"
 );
@@ -79,7 +82,7 @@ client.on("message", async message => {
     message.reply(`**${member.user.tag} has been kicked by ${message.author.tag} because: ${reason}**`);
 	  
      let embed = new Discord.RichEmbed()
-    .setColor('#1420c9')
+    .setColor(EmbedColor)
     .setAuthor(`${message.guild.name} logs`, message.guild.iconURL)
     .addField("Moderation:", "kick")
     .addField("Mutee:", member.user.username)
@@ -109,7 +112,7 @@ client.on("message", async message => {
     message.reply(`**${member.user.tag} has been banned by ${message.author.tag} because: ${reason}**`);
 	  
      let embed = new Discord.RichEmbed()
-    .setColor('#1420c9')
+    .setColor(EmbedColor)
     .setAuthor(`${message.guild.name} logs`, message.guild.iconURL)
     .addField("Moderation:", "ban")
     .addField("Mutee:", member.user.username)
@@ -149,7 +152,7 @@ client.on("message", async message => {
         try{
             muterole = await message.guild.createRole({
                 name: "Muted",
-                color: "#514f48",
+                color: EmbedColor,
                 permissions: []
             })
             message.guild.channels.forEach(async (channel, id) => {
@@ -173,7 +176,7 @@ client.on("message", async message => {
     })
 
     let embed = new Discord.RichEmbed()
-    .setColor('#1420c9')
+    .setColor(EmbedColor)
     .setAuthor(`${message.guild.name} logs`, message.guild.iconURL)
     .addField("Moderation:", "mute")
     .addField("Mutee:", mutee.user.username)
@@ -206,7 +209,7 @@ client.on("message", async message => {
     })
 
     let embed = new Discord.RichEmbed()
-    .setColor("#1420c9")
+    .setColor(EmbedColor)
     .setAuthor(`${message.guild.name} logs`, message.guild.iconURL)
     .addField("Moderation:", "unmute")
     .addField("Mutee:", mutee.user.username)
@@ -220,7 +223,7 @@ client.on("message", async message => {
 
   if(command === 'botinfo') {
     let embed = new Discord.RichEmbed()
-    .setColor("#1420c9")
+    .setColor(EmbedColor)
     .setTitle("Botinfo:")
     .addField("Bot version:", `${version}`)
     .addField("Bot creator:", `${creator}`)
@@ -234,7 +237,7 @@ client.on("message", async message => {
 
   if(command === 'serverinfo') {
     let embed = new Discord.RichEmbed()
-    .setColor("#1420c9")
+    .setColor(EmbedColor)
     .setTitle("Serverinfo:")
     .addField("Server name:", message.guild.name)
     .addField("Created at:", message.guild.createdAt)
@@ -249,7 +252,7 @@ client.on("message", async message => {
     let embed = new Discord.RichEmbed()
     .setAuthor(user.tag, user.displayAvatarURL)
     .setThumbnail(user.avatarURL)
-    .setColor("0x")
+    .setColor(EmbedColor)
     .addField('Username', user.username, true)
     .addField('Discord tag', `#${user.discriminator}`, true)
     .addField('ID', user.id, true)
@@ -264,7 +267,7 @@ client.on("message", async message => {
     .setAuthor(message.author.username)
     .setTitle('User commands')
     .setFooter('Help')
-    .setColor("#1420c9")
+    .setColor(EmbedColor)
     .setTimestamp(message.createdAt)
     .addField('help', `Shows you a list of all the avaible command to normal users and moderators`)
     .addField('say', `Let the bot say something you want it to say, the bot also shows the name of the author`)
@@ -283,7 +286,7 @@ client.on("message", async message => {
     .setAuthor(message.author.username)
     .setTitle('Moderator commands')
     .setFooter('Help')
-    .setColor("#1420c9")
+    .setColor(EmbedColor)
     .setTimestamp(message.createdAt)
     .addField('kick', `Kicks the mentioned user if you have the moderator or admin role`)
     .addField('ban', `Bans the mentioned user if you have the moderator or admin role`)
@@ -322,7 +325,7 @@ client.on("message", async message => {
     }
 
     let embed = new Discord.RichEmbed()
-    .setColor("#1420c9")
+    .setColor(EmbedColor)
     .setAuthor(`${message.guild.name} logs`, message.guild.iconURL)
     .addField("Moderation:", "Addrole")
     .addField("Mutee:", rMember.user.username)
@@ -354,7 +357,7 @@ client.on("message", async message => {
     }
 
     let embed = new Discord.RichEmbed()
-    .setColor("#1420c9")
+    .setColor(EmbedColor)
     .setAuthor(`${message.guild.name} logs`, message.guild.iconURL)
     .addField("Moderation:", "Addrole")
     .addField("Mutee:", rMember.user.username)
@@ -387,7 +390,7 @@ client.on("message", async message => {
       }
   
       let embed = new RichEmbed()
-      .setColor(redlight)
+      .setColor(EmbedColor)
       .setAuthor(`${message.guild.name} logs`, message.guild.iconURL)
       .addField("Moderation:", "unban")
       .addField("Moderated on:", `${bannedMember.username} (${bannedMember.id})`)
@@ -416,7 +419,7 @@ client.on("message", async message => {
     message.channel.send(`**${banMember.user.tag}** has been banned`).then(m => m.delete(5000))
  
      let embed = new RichEmbed()
-     .setColor("#1420c9")
+     .setColor(EmbedColor)
      .setAuthor(`${message.guild.name} logs`, message.guild.iconURL)
      .addField("Moderation:", "ban")
      .addField("Mutee:", banMember.user.username)
@@ -492,7 +495,7 @@ client.on("message", async message => {
             });
             message.channel.send(`:white_check_mark: Your ticket has been created, #${c.name}.`);
             const embed = new Discord.RichEmbed()
-                .setColor(0xCF40FA)
+                .setColor(EmbedColor)
                 .addField(`Hey ${message.author.username}`, `Please try explain why you opened this ticket with as much detail as possible. Our **Support Staff** will be here soon to help.`)
                 .setTimestamp();
             c.send({
