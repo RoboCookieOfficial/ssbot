@@ -170,7 +170,7 @@ client.on("message", async message => {
     if(!reason) reason = "**No reason given**"
 
     let muterole = message.guild.roles.find(r => r.name === "Muted")
-    if(!muterole) return message.channel.send("There is no mute role to remove!")
+    if(!muterole) return message.channel.send("**There is no mute role to remove**")
 
     mutee.removeRole(muterole.id).then(() => {
         message.delete()
@@ -222,7 +222,7 @@ client.on("message", async message => {
     let embed = new Discord.RichEmbed()
     .setAuthor(user.tag, user.displayAvatarURL)
     .setThumbnail(user.avatarURL)
-    .setColor("#1420c9")
+    .setColor("0x")
     .addField('Username', user.username, true)
     .addField('Discord tag', `#${user.discriminator}`, true)
     .addField('ID', user.id, true)
