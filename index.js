@@ -55,7 +55,11 @@ client.on("message", async message => {
     const sayMessage = args.join(" ");
     message.delete().catch(O_o=>{}); 
     message.channel.send(`**Message: ${sayMessage} (requested by: ${message.author})**`);
-  };
+  }
+	
+  if(command === '*') {
+    message.channel.send("Bot is online!");
+  }
   
   if(command === "kick") {
     if(!message.member.roles.some(r=>["Admin", "Moderator", "Administrator", "Mod"].includes(r.name)) )
@@ -85,7 +89,6 @@ client.on("message", async message => {
 
     let sChannel = message.guild.channels.find(c => c.name === "logs")
     sChannel.send(embed)
-
   }
   
   if(command === "ban") {
@@ -510,10 +513,6 @@ client.on("message", async message => {
     ]});
 
     msg.delete();
-  }
-	
-  if(command === '*') {
-    message.channel.send("Bot is online!");
   }
 });
 
