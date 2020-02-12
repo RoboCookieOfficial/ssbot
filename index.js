@@ -73,6 +73,18 @@ client.on("message", async message => {
     await member.kick(reason)
       .catch(error => message.reply(`**Sorry ${message.author} I couldn't kick because of : ${error}**`));
     message.reply(`**${member.user.tag} has been kicked by ${message.author.tag} because: ${reason}**`);
+	  
+     let embed = new Discord.RichEmbed()
+    .setColor('#1420c9')
+    .setAuthor(`${message.guild.name} logs`, message.guild.iconURL)
+    .addField("Moderation:", "kick")
+    .addField("Mutee:", member.user.username)
+    .addField("Moderator:", message.author.username)
+    .addField("Reason:", reason)
+    .addField("Date:", message.createdAt.toLocaleString())
+
+    let sChannel = message.guild.channels.find(c => c.name === "logs")
+    sChannel.send(embed)
 
   }
   
@@ -92,6 +104,18 @@ client.on("message", async message => {
     await member.ban(reason)
       .catch(error => message.reply(`**Sorry ${message.author} I couldn't ban because of : ${error}**`));
     message.reply(`**${member.user.tag} has been banned by ${message.author.tag} because: ${reason}**`);
+	  
+     let embed = new Discord.RichEmbed()
+    .setColor('#1420c9')
+    .setAuthor(`${message.guild.name} logs`, message.guild.iconURL)
+    .addField("Moderation:", "ban")
+    .addField("Mutee:", member.user.username)
+    .addField("Moderator:", message.author.username)
+    .addField("Reason:", reason)
+    .addField("Date:", message.createdAt.toLocaleString())
+
+    let sChannel = message.guild.channels.find(c => c.name === "logs")
+    sChannel.send(embed)
   }
   
   if(command === "clear") {
