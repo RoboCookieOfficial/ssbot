@@ -11,7 +11,7 @@ var version = (
 );
 
 var creator = (
-  "RoboCookie#1925"
+  "**RoboCookie#1925**"
 );
 
 var owner = (
