@@ -239,7 +239,7 @@ client.on("message", async message => {
     .setFooter('Help')
     .setColor("#1420c9")
     .setTimestamp(message.createdAt)
-    .addField('help', `This command`)
+    .addField('help', `Shows you a list of all the avaible command to normal users and moderators`)
     .addField('say', `Let the bot say something you want it to say, the bot also shows the name of the author`)
     .addField('ping', `Bot answers "Pong!"`)
     .addField('botinfo', `Gives you some info about the bot`)
