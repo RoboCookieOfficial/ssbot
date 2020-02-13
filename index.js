@@ -6,8 +6,6 @@ const config = require("./config.json");
 
 const Welcome = require("discord-welcome");
 
-let warns = JSON.parse(fs.readFileSync("./warnings.json", "utf"));
-
 var EmbedColor = (
   "#00FFFF"
 )
@@ -51,19 +49,15 @@ client.on("message", async message => {
   
   const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
   const command = args.shift().toLowerCase();
-
-  if(command === "yeet") {
-    message.channel.send('**Yeetus Deletus**');
+	
+  if(command === '*') {
+    message.channel.send("Bot is online!");
   }
   
   if(command === "say") {
     const sayMessage = args.join(" ");
     message.delete().catch(O_o=>{}); 
     message.channel.send(`**Message: ${sayMessage} (requested by: ${message.author})**`);
-  }
-	
-  if(command === '*') {
-    message.channel.send("Bot is online!");
   }
   
   if(command === "kick") {
