@@ -517,6 +517,11 @@ client.on("message", async message => {
 
     msg.delete();
   }
+	
+  if(command === 'warn') {
+    if(!message.member.hasPermission("MANAGE_MEMBERS")) return message.channel.send('You don\'t have permission to use this command');
+    let wUser = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0])
+  }
 });
 
 client.login(process.env.TOKEN);
