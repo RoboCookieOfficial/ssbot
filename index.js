@@ -6,6 +6,8 @@ const config = require("./config.json");
 
 const Welcome = require("discord-welcome");
 
+let warns = JSON.parse(fs.readFileSync("./warnings.json", "utf"));
+
 var EmbedColor = (
   "#00FFFF"
 )
@@ -516,11 +518,6 @@ client.on("message", async message => {
     ]});
 
     msg.delete();
-  }
-	
-  if(command === 'warn') {
-    if(!message.member.hasPermission("MANAGE_MEMBERS")) return message.channel.send('You don\'t have permission to use this command');
-    let wUser = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0])
   }
 });
 
