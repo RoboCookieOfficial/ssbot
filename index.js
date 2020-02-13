@@ -238,6 +238,7 @@ client.on("message", async message => {
     .addField("Server name:", message.guild.name)
     .addField("Created at:", message.guild.createdAt)
     .addField("Members:", message.guild.memberCount)
+    .addField("Current channel:", message.channel.name)
 
     message.channel.send(embed);
   }
@@ -253,7 +254,7 @@ client.on("message", async message => {
     .addField('Discord tag', `#${user.discriminator}`, true)
     .addField('ID', user.id, true)
     .addField('Status', user.status, true)
-    .addField('Registered', user.createdAt)
+    .addField('Registered At', user.createdAt)
 
     message.channel.send(embed);
   }
