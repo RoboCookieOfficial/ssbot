@@ -42,28 +42,6 @@ client.on("guildDelete", guild => {
   client.user.setActivity(`/help`);
 });
 
-client.on('ready', () => {
-    setTimeout(function(){
-        sendMessage();
-        var dayMillseconds = 1000 * 60 * 60 * 24 * 7;
-        setInterval(function(){
-            sendMessage();
-        }, dayMillseconds)
-    }, leftToEight())
-})
-
-function leftToOne(){
-    var d = new Date();
-    return (-d + d.setHours(1,0,0,0));
-}
-
-function sendMessage(){
-    var guild = client.guilds.get('588731883710316559');
-    if(guild && guild.channels.get('679027372862996529')){
-        guild.channels.get('679027372862996529').send("**https://warrobots.fandom.com/wiki/Test_Server**");
-    }
-
-}
 
 client.on("message", async message => {
   if(message.author.bot) return;
