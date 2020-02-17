@@ -42,6 +42,29 @@ client.on("guildDelete", guild => {
   client.user.setActivity(`/help`);
 });
 
+client.on('ready', () => {
+    setTimeout(function(){
+        sendMessage();
+        var dayMillseconds = 1000 * 60 * 60 * 24 * 7;
+        setInterval(function(){
+            sendMessage();
+        }, dayMillseconds)
+    }, leftToEight())
+})
+
+function leftToOne(){
+    var d = new Date();
+    return (-d + d.setHours(1,0,0,0));
+}
+
+function sendMessage(){
+    var guild = client.guilds.get('guildid');
+    if(guild && guild.channels.get('channelid')){
+        guild.channels.get('channelid').send("Good Morning");
+    }
+
+}
+
 client.on("message", async message => {
   if(message.author.bot) return;
   
