@@ -515,25 +515,6 @@ client.on("message", async message => {
 
     msg.delete();
   }
-	
-  if(command === 'calc') {
-    if(!args[0]) return message.channel.send("**Please input a calculation...**");
-	  
-    let resp;
-    try {
-      resp = math.eval(args.join(' '));
-    } catch (e) {
-      return message.channel.send('**Sorry, please input a valid calculation...**');
-    }
-	  
-    const CalcEmbed = new Discord.MessageEmbed()
-      .setColor(EmbedColor)
-      .setTitle('Math Calculation')
-      .addField('Input', '\`\`\`js\n${args.join('')}\`\`\`'))
-      .addField('Output', '\`\`\`js\n${resp}\`\`\`')
-
-    message.channel.send(CalcEmbed);
-  }
 });
 
 client.login(process.env.TOKEN);
