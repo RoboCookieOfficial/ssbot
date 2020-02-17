@@ -5,7 +5,6 @@ const client = new Discord.Client();
 const config = require("./config.json");
 
 const Welcome = require("discord-welcome");
-const math = resuire("mathjs");
 
 var EmbedColor = (
   "#00FFFF"
