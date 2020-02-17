@@ -529,7 +529,7 @@ client.on("message", async message => {
     const CalcEmbed = new Discord.MessageEmbed()
       .setColor(EmbedColor)
       .setTitle('Math Calculation')
-      .addField('Input', 'args.join('\`\`\`js\n${args.join('')}\`\`\`'))
+      .addField('Input', '\`\`\`js\n${args.join('')}\`\`\`'))
       .addField('Output', '\`\`\`js\n${resp}\`\`\`')
 
     message.channel.send(CalcEmbed);
