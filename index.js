@@ -58,9 +58,9 @@ function leftToOne(){
 }
 
 function sendMessage(){
-    var guild = client.guilds.get('guildid');
-    if(guild && guild.channels.get('channelid')){
-        guild.channels.get('channelid').send("Good Morning");
+    var guild = client.guilds.get('588731883710316559');
+    if(guild && guild.channels.get('679027372862996529')){
+        guild.channels.get('679027372862996529').send("**https://warrobots.fandom.com/wiki/Test_Server**");
     }
 
 }
