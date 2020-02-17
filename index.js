@@ -42,7 +42,6 @@ client.on("guildDelete", guild => {
   client.user.setActivity(`/help`);
 });
 
-
 client.on("message", async message => {
   if(message.author.bot) return;
   
