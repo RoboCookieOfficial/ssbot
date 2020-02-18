@@ -192,7 +192,7 @@ client.on("message", async message => {
     if(!message.guild.me.hasPermission(["MANAGE_ROLES", "ADMINISTRATOR"])) return message.channel.send("I don't have permission to add roles!")
 
     let mutee = message.mentions.members.first() || message.guild.members.get(args[0]);
-    if(!mutee) return message.channel.send("**Please supply a user to be muted**");
+    if(!mutee) return message.channel.send("**Please supply a user to be unmuted**");
 
     let reason = args.slice(1).join(" ");
     if(!reason) reason = "**No reason given**"
