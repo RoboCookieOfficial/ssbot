@@ -532,7 +532,7 @@ client.on("message", async message => {
         message.channel.send({
 	  files: [{
 	    attachment: res.body,
-	    name: 'meme.png'
+	    name: 'dog.png'
 	  }]
 	}).then(() => message.channel.stopTyping());
       }).catch(err => console.log(err));
