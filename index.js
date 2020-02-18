@@ -530,7 +530,7 @@ client.on("message", async message => {
 	  
     randomPuppy(subreddit).then(url => {
       snekfetch.get(url).then(async res => {
-        async message.channel.send({
+        message.channel.send({
 	  files: [{
 	    attachment: res.body,
 	    name: 'meme.png'
