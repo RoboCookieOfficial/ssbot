@@ -517,11 +517,10 @@ client.on("message", async message => {
     msg.delete();
   }
 
-  if(command === 'meme') {
+  if(command === 'dog') {
     let reddit = [
-      "meme",
-      "dankmeme",
-      "economy meme"
+      'dog',
+      'puppy'
     ]
     
     let subreddit = reddit[Math.floor(Math.random() * reddit.length - 1)];
