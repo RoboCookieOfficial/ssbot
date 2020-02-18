@@ -5,6 +5,8 @@ const client = new Discord.Client();
 const config = require("./config.json");
 
 const Welcome = require("discord-welcome");
+const randomPuppy = require('random-puppy');
+const snekfetch = require('snekfetch');
 
 var EmbedColor = (
   "#00FFFF"
@@ -513,6 +515,29 @@ client.on("message", async message => {
     ]});
 
     msg.delete();
+  }
+
+  if(command === 'meme') {
+    let reddit = [
+      "meme",
+      "dankmeme",
+      "economy meme"
+    ]
+    
+    let subreddit = reddit[Math.floor(Math.random() * reddit.length - 1)];
+	  
+    message.channel.startTyping();
+	  
+    randomPuppy(subreddit).then(url => {
+      snekfetch.get(url).then(async res => {
+        async message.channel.send({
+	  files: [{
+	    attachment: res.body,
+	    name: 'meme.png'
+	  }]
+	}).then(() => message.channel.stopTyping());
+      }).catch(err => console.log(err));
+    }).catch(err => console.log(err));
   }
 });
 
