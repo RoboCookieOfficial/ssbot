@@ -528,6 +528,34 @@ client.on("message", async message => {
 
      message.channel.send(memeEmbed);
   }
+	
+  if(command === 'cat') {
+     const subReddits = ["cat", "kitten"];
+     const random = subReddits[Math.floor(Math.random() * subReddits.length)];
+
+     const img = await randomPuppy(random);
+     const memeEmbed = new Discord.RichEmbed()
+         .setColor(EmbedColor)
+         .setImage(img)
+         .setTitle(`From /r/${random}`)
+         .setURL(`https://reddit.com/r/${random}`);
+
+     message.channel.send(memeEmbed);
+  }
+	
+  if(command === 'dog') {
+     const subReddits = ["dog", "puppy", "doggo"];
+     const random = subReddits[Math.floor(Math.random() * subReddits.length)];
+
+     const img = await randomPuppy(random);
+     const memeEmbed = new Discord.RichEmbed()
+         .setColor(EmbedColor)
+         .setImage(img)
+         .setTitle(`From /r/${random}`)
+         .setURL(`https://reddit.com/r/${random}`);
+
+     message.channel.send(memeEmbed);
+  }
 });
 
 client.login(process.env.TOKEN);
