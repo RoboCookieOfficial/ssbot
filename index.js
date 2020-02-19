@@ -5,7 +5,7 @@ const client = new Discord.Client();
 const config = require("./config.json");
 
 const Welcome = require("discord-welcome");
-const randomPuppy = require('random-puppy');
+const randomPuppy = require("random-puppy");
 
 var EmbedColor = (
   "#00FFFF"
