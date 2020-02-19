@@ -6,7 +6,6 @@ const config = require("./config.json");
 
 const Welcome = require("discord-welcome");
 const randomPuppy = require('random-puppy');
-const snekfetch = require('snekfetch');
 
 var EmbedColor = (
   "#00FFFF"
