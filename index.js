@@ -13,7 +13,7 @@ var EmbedColor = (
   "#00FFFF"
 )
 var version = (
-  "1.1.5"
+  "**1.1.5**"
 );
 
 var creator = (
