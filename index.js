@@ -278,7 +278,7 @@ client.on("message", async message => {
     .addField('report', `Reports the mentioned user for the given reason`)
     .addField('ticket', `Opens a ticket that you and the Support Staff can see`)
     .addField('avatar', `Send the avatar of the mentioned user`)
-    .addField('dog', `Sends a random dog picture`)
+    .addField('meme', `Sends a random meme`)
 
     message.channel.send(UserCommandEmbed);
 
