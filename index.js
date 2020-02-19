@@ -560,7 +560,7 @@ client.on("message", async message => {
   }
 	
   if(command === 'search') {
-     if (!suffix) {
+     if (!google(suffix)) {
         message.channel.send({
             embed: {
                 color: 0xff2727,
