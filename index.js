@@ -58,7 +58,7 @@ client.on("message", async message => {
   if(command === "say") {
     const sayMessage = args.join(" ");
     message.delete().catch(O_o=>{}); 
-    message.channel.send(`Message: **${sayMessage}**\nRequested by: **${message.author})**`);
+    message.channel.send(`**Message**: ${sayMessage}\n**Requested by**: ${message.author}`);
   }
   
   if(command === "kick") {
