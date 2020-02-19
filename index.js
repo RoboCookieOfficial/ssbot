@@ -565,7 +565,6 @@ client.on("message", async message => {
             embed: {
                 color: 0xff2727,
                 description: `:warning: **${message.author.username}**, You didn't give me anything to search. {.google \`input\`}`,
-                }
             }
         });
     }
