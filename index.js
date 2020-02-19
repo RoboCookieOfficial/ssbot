@@ -278,6 +278,8 @@ client.on("message", async message => {
     .addField('ticket', `Opens a ticket that you and the Support Staff can see`)
     .addField('avatar', `Send the avatar of the mentioned user`)
     .addField('meme', `Sends a meme`)
+    .addField('dog', `Sends a dog or puppy picture`)
+    .addField('cat', `Sends a cat or kitten picture`)
 
     message.channel.send(UserCommandEmbed);
 
