@@ -518,26 +518,18 @@ client.on("message", async message => {
     msg.delete();
   }
 
-  if(command === 'dog') {
-    let reddit = [
-      'dog',
-      'puppy'
-    ]
-    
-    let subreddit = reddit[Math.floor(Math.random() * reddit.length - 1)];
-	  
-    message.channel.startTyping();
-	  
-    randomPuppy(subreddit).then(url => {
-      snekfetch.get(url).then(async res => {
-        message.channel.send({
-	  files: [{
-	    attachment: res.body,
-	    name: 'dog.png'
-	  }]
-	}).then(() => message.channel.stopTyping());
-      }).catch(err => console.log(err));
-    }).catch(err => console.log(err));
+  if(command === 'meme') {
+     const subReddits = ["dankmeme", "meme", "me_irl"];
+     const random = subReddits[Math.floor(Math.random() * subReddits.length)];
+
+     const img = await randomPuppy(random);
+     const memeEmbed = new Discord.RichEmbed()
+         .setColor(EmbedColor)
+         .setImage(img)
+         .setTitle(`From /r/${random}`)
+         .setURL(`https://reddit.com/r/${random}`);
+
+     message.channel.send(memeEmbed);
   }
 });
 
