@@ -533,7 +533,7 @@ client.on("message", async message => {
   }
 	
   if(command === 'cat') {
-     const subReddits = ["cat", "kitten"];
+     const subReddits = ["cat", "baby_cat"];
      const random = subReddits[Math.floor(Math.random() * subReddits.length)];
 
      const img = await randomPuppy(random);
